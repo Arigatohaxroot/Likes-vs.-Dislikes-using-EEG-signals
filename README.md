@@ -37,16 +37,57 @@ The dataset consists of EEG recordings from 19 participants who were shown image
 *(This is a sample image used in the dataset.)*
 
 ## Methodology
-### Data Acquisition
+
+### Dataset Acquisition Process
 EEG signals were recorded using BrainVision equipment, with modified electrode placement for full-brain coverage. The images were displayed for 4-5 seconds, and EEG data was collected during this period.
 
-### Data Preprocessing
+<p align="center">
+  <img src="https://i.imgur.com/t8uDIfu.png" alt="EEG Acquisition Setup">
+</p>
+
+*(This image shows the EEG acquisition process.)*
+
+### Data Preprocessing on MATLAB
 - **Resampling**: From 2000Hz to 128Hz
 - **High-Pass Filtering**: Removal of baseline drift (1-2 Hz for ICA)
 - **Artifact Removal**: Using Artifact Subspace Reconstruction (ASR)
 - **Independent Component Analysis (ICA)**: To eliminate eye-blink and muscle movement artifacts.
 
 The clean EEG data was exported and used for model training and testing.
+
+#### Visualizations:
+<p align="center">
+  <img src="https://i.imgur.com/IGVKJaM.png" alt="EEG Data Preprocessing in MATLAB">
+</p>
+
+*(This image shows EEG preprocessing in MATLAB.)*
+
+#### Statistics of Recorded EEG Data Sample:
+<p align="center">
+  <img src="https://i.imgur.com/HJaozqq.png" alt="Statistics of Recorded EEG Data">
+</p>
+
+*(This image shows the statistics of the recorded EEG data.)*
+
+#### Artifact Subspace Reconstruction (ASR):
+<p align="center">
+  <img src="https://i.imgur.com/pkZoHoM.png" alt="ASR Waveform Before and After">
+</p>
+
+*(Red waveform shows before performing ASR and blue waveform shows after performing ASR.)*
+
+#### Independent Component Analysis (ICA):
+- **Before Preprocessing**:
+<p align="center">
+  <img src="https://i.imgur.com/Wb0ld0U.png" alt="ICA Activity Before Preprocessing">
+</p>
+
+- **After Preprocessing**:
+<p align="center">
+  <img src="https://i.imgur.com/fmRNprn.png" alt="ICA Activity After Preprocessing">
+</p>
+
+*(These images show the ICA activity before and after preprocessing.)*
 
 ## Models
 Several machine learning algorithms were tested:
@@ -61,21 +102,38 @@ Several machine learning algorithms were tested:
 - Data was standardized and flattened for model training.
 
 ## Results
-- **Support Vector Machines (SVM)** showed the best precision and recall performance.
-- **Artificial Neural Networks (ANN)** demonstrated balanced performance in terms of precision, recall, and F1-score.
-- **Random Forest** and **Logistic Regression** exhibited moderate performance.
 
-### Accuracy Comparison:
+### Accuracy Comparison Between Different Classifiers:
 <p align="center">
-  <img src="link_to_accuracy_graph_image" alt="Accuracy Comparison Graph">
+  <img src="https://i.imgur.com/rBy56u6.png" alt="Accuracy Comparison Between Classifiers">
+</p>
+
+### Cross-Validation Accuracy Comparison Between Classifiers:
+<p align="center">
+  <img src="https://i.imgur.com/dv9LYxo.png" alt="Cross-Validation Accuracy Comparison">
+</p>
+
+### Precision, Recall, and F1-Score Metrics Comparison:
+<p align="center">
+  <img src="https://i.imgur.com/a1UEqJf.png" alt="Precision, Recall, and F1-Score Metrics Comparison">
+</p>
+
+### Confusion Matrix of Different Classifiers:
+<p align="center">
+  <img src="https://i.imgur.com/JNfaM6P.png" alt="Confusion Matrix of Different Classifiers">
 </p>
 
 ### t-SNE Plot:
 <p align="center">
-  <img src="link_to_tsne_plot_image" alt="t-SNE Plot">
+  <img src="https://i.imgur.com/4mJouJl.png" alt="t-SNE Visualization of ANN">
 </p>
 
-*(Add links to your result images once you provide them.)*
+### Actual Labels vs. Predicted Labels:
+<p align="center">
+  <img src="https://i.imgur.com/P6t0bja.png" alt="Actual vs Predicted Labels">
+</p>
+
+*(These images show various metrics, including accuracy, cross-validation, confusion matrix, t-SNE visualization, and more.)*
 
 ## Usage
 Clone this repository and run the following steps to reproduce the results:
